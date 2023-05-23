@@ -1,0 +1,50 @@
+# Create Contoso Supermarket Queue Monitoring Backend Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: queue-monitoring-backend
+  namespace: contoso
+  labels:
+    app: queue-monitoring-backend
+spec:
+  selector:
+    app: queue-monitoring-backend
+  ports:
+  - name: http
+    port: 4000
+    targetPort: 4000
+---
+# Create Contoso Supermarket Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-monitoring-backend
+  namespace: contoso
+  labels:
+    app: queue-monitoring-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: queue-monitoring-backend
+  template:
+    metadata:
+      labels:
+        app: queue-monitoring-backend
+    spec:
+      containers:
+        - name: queue-monitoring-backend
+          image: oneedgedemo.azurecr.io/contoso-supermarket/queue-monitoring-backend:latest
+          env:
+            - name: SQL_HOST
+              value: contosodb
+            - name: SQL_USERNAME
+              value: admin
+            - name: SQL_PASSWORD
+              value: secret
+            - name: SQL_DATABASE
+              value: contoso
+            - name: ASPNETCORE_URLS
+              value : "http://*:4000/"
+          ports:
+            - containerPort: 4000

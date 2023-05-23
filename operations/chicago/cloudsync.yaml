@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudsync
+  namespace: contoso
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudsync
+  template:
+    metadata:
+      labels:
+        app: cloudsync
+    spec:
+      containers:
+        - name: cloudsync
+          image: oneedgedemo.azurecr.io/contoso-supermarket/pos-cloudsync:latest
+          env:
+          - name: SQL_HOST
+            value: contosodb
+          - name: SQL_USERNAME
+            value: admin
+          - name: SQL_PASSWORD
+            value: secret
+          - name: SQL_DATABASE
+            value: contosodb
+          - name: SYNCINTERVAL
+            value: '120'
+          - name: COSMOSENDPOINT
+            value: {{ required "A valid Cosmos container is required! (Set cosmos.endpoint)" .Values.cosmos.endpoint }}
+          - name: COSMOSKEY
+            valueFrom:
+              secretKeyRef:
+                name: cosmoskey
+                key: COSMOS_KEY     
+          - name: COSMOSDB
+            value: {{ required "A valid Cosmos container is required! (Set cosmos.database)" .Values.cosmos.database }}
+          - name: COSMOSCONTAINER
+            value: {{ required "A valid Cosmos container is required! (Set cosmos.container)" .Values.cosmos.container }}
+      imagePullSecrets:
+        - name: acr-secret
