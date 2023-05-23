@@ -1,1 +1,1 @@
-# contoso_supermarket
+# Welcome to Contoso Supermarket
