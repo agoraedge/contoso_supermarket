@@ -35,6 +35,6 @@ spec:
     spec:
       containers:
         - name: contosoai
-          image: oneedgedemo.azurecr.io/contoso-supermarket/contosoai:latest
+          image: agacreaa222.azurecr.io/dev/contoso-supermarket/contosoai:v1.0
           ports:
             - containerPort: 8000
