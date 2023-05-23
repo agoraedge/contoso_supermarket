@@ -35,8 +35,6 @@ spec:
     spec:
       containers:
         - name: contosoai
-          image: oneedgedemo.azurecr.io/contoso-supermarket/contosoai:latest
+          image: agacreaa22.azurecr.io/staging/contoso-supermarket/contosoai:v1.0
           ports:
             - containerPort: 8000
-      imagePullSecrets:
-        - name: acr-secret
