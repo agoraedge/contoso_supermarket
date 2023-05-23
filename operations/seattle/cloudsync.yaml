@@ -38,5 +38,4 @@ spec:
             value: "Orders"
           - name: COSMOSCONTAINER
             value: "Orders"
-      imagePullSecrets:
-        - name: acr-secret
+
