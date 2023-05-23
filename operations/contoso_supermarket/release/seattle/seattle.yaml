@@ -24,7 +24,7 @@ spec:
       endpoint: https://builddemo.documents.azure.com:443/
     point_of_sale:
       title: "Contoso Supermarket v1"
-      cameras_enabled: "False"
+      cameras_enabled: "True"
       cameras_url: ""
       new_category: "True"
       holiday_banner: "False"
