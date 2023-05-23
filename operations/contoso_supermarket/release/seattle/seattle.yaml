@@ -16,7 +16,7 @@ spec:
     queue_monitoring:
       timezone: "Pacific Standard Time"
     postgres:
-      username: "postgres"
+      username: "admin"
       database: "contoso"
     cosmos:
       container: "pos"
