@@ -23,10 +23,10 @@ spec:
       database: "contoso"
       endpoint: https://builddemo.documents.azure.com:443/
     point_of_sale:
-      title: "Contoso Supermarket v1"
+      title: "Contoso Supermarket 2023"
       cameras_enabled: "True"
       cameras_url: ""
       new_category: "True"
       holiday_banner: "False"
       store_id: 1
-      store_location: "Seattle"
+      store_location: "Redmond"
