@@ -7,8 +7,8 @@ cosmos:
   database: "contoso" 
 
 point_of_sale:
-  title: "Contoso Supermarket v1.0"
-  cameras_enabled: "False"
+  title: "Contoso Supermarket 2023"
+  cameras_enabled: "True"
   cameras_url: ""
   new_category: "True"
   holiday_banner: "False"
