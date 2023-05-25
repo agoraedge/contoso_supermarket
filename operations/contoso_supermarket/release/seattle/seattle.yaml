@@ -29,4 +29,4 @@ spec:
       new_category: "True"
       holiday_banner: "False"
       store_id: 1
-      store_location: "Redmond"
+      store_location: "Seattle"
